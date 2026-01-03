@@ -20,13 +20,14 @@
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 3rem;
     padding: 1rem 2rem;
     background-color: #ffffff;
 }
 
 .nav-logo img {
-    height: 48px;
+    height: 5rem;
     width: auto;
 }
 
@@ -40,16 +41,19 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #111;
+    color: #0f4980;
     font-weight: 500;
+    font-size: 1.6rem;
     transition: color 0.2s ease;
+    gap: 1rem;
 }
 
 .nav-links a:hover {
-    color: #0f4980;
+    color: #cc1824;
 }
 
 .nav-links a.router-link-active {
     color: #cc1824;
 }
+
 </style>

@@ -1,69 +1,67 @@
 <script setup>
 import Header from '../components/navigation.vue'
 import FlipCards from '../components/FlipCards.vue'
+import Galleri from '../components/Galleri.vue'
 </script>
 
 <template>
   <Header />
 
-<body>
-  
-<main>
+  <main>
     <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-  >
-    <source src="../assets/vid/Action-house-1.1-II-_1_-_1_.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+    >
+      <source src="../assets/vid/Action-house-1.1-II-_1_-_1_.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 
-  <section>
-    <h1 class="forsideTitles">Sjov og action for alle</h1>
-    <p class="forsideParagraphs forsideMaxLength">
-      Hos Action House i Løkken finder du et væld af sjove aktiviteter og oplevelser fordelt på 12.530 m².
-      Længere nede på siden kan du læse om historien bag Action House Funcenter samt se en tidslinje for,
-      hvornår vores forskellige forlystelser blev etableret. Vi tilbyder sjove og unikke oplevelser for
-      både børn og voksne.
-    </p>
-  </section>
+    <section>
+      <h1 class="forsideTitles">Sjov og action for alle</h1>
+      <p class="forsideParagraphs forsideMaxLength">
+        Hos Action House i Løkken finder du et væld af sjove aktiviteter og oplevelser fordelt på 12.530 m².
+        Længere nede på siden kan du læse om historien bag Action House Funcenter samt se en tidslinje for,
+        hvornår vores forskellige forlystelser blev etableret. Vi tilbyder sjove og unikke oplevelser for
+        både børn og voksne.
+      </p>
+    </section>
 
+    <FlipCards />
 
-  <FlipCards />
+    <h2 class="forsideTitles">Om os</h2>
 
-  <h2 class="forsideTitles">Om os</h2>
+    <section class="omOsSection">
+      <div class="omOsContainer">
+        <div class="omOsText">
+          <p class="forsideParagraphs">
+            Action House Funcenter er stedet, hvor fart, fællesskab og sjove oplevelser mødes.
+            Uanset om du kommer for at konkurrere, grine eller skabe minder med venner, familie
+            eller kolleger, har vi rammerne til en dag fyldt med action.
+            <br><br>
+            Læs mere på <a href="#">Om os.</a>
+          </p>
+        </div>
 
-  <section class="omOsSection">
-    <p class="forsideParagraphs">
-      Action House Funcenter er stedet, hvor fart, fællesskab og sjove oplevelser mødes.
-      Uanset om du kommer for at konkurrere, grine eller skabe minder med venner, familie
-      eller kolleger, har vi rammerne til en dag fyldt med action.
-      <br><br>
-      Læs mere på <a href="#">Om os.</a>
-    </p>
+        <div class="omOsImage">
+          <img src="../assets/img/actionhouseFacade.webp" alt="">
+        </div>
+      </div>
+    </section>
 
-    <img class="imgWidthFix" src="./assets/img/actionhouseFacade.webp" alt="">
-  </section>
+    <button class="forsideButton">Læs mere</button>
 
-  <button>Læs mere</button>
-
-  <section>
-    <h2 class="forsideTitles">Galleri</h2>
-    <img src="./assets/img/GokartKoersel.webp" alt="">
-    <img src="./assets/img/Gokartpodium.webp" alt="">
-    <img src="./assets/img/Gokarthjelme.webp" alt="">
-  </section>
-</main>
-
-</body>
- 
+    <section>
+      <h2 class="forsideTitles">Galleri</h2>
+      <Galleri />
+    </section>
+  </main>
 </template>
 
 <style scoped>
-
-  .hero-video {
+.hero-video {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -86,23 +84,69 @@ import FlipCards from '../components/FlipCards.vue'
 
 .omOsSection {
   display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.omOsContainer {
+  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  max-width: 80%;
+  gap: 2rem;
+}
+
+.omOsText {
+  flex: 1;
+}
+
+.omOsImage {
+  flex: 1;
+}
+
+.omOsImage img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .imgWidthFix {
   width: 50%;
 }
 
-.forsideMaxLength{
+.forsideMaxLength {
   max-width: 50%;
 }
 
 img {
   border-radius: var(--desktopBorder);
 }
+
+.forsideButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12rem;      
+  height: 4rem;     
+  background-color: #D41E2A;
+  border: none;
+  border-radius: .5rem; 
+  cursor: pointer;
+  margin-top: 19rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.forsideButton:hover {
+  background-color: #154B82;
+  transform: translate(-50%, -50%) scale(1.1);
+  transition: all 0.2s ease;
+}
+
 
 </style>
