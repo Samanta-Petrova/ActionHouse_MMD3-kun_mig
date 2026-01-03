@@ -1,3 +1,5 @@
+
+
 <template>
     <nav>
         <ul>
@@ -9,3 +11,7 @@
         </ul>
     </nav>
 </template>
+
+<style>
+   
+</style>

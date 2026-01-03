@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+body {
+    background: var(--mainbaige);
+    margin: 0 auto;
+}
+
+
+
+:root {
+    /* Color Variables */
+    --mainred: #D41E2A;
+    --mainblue: #154B82;
+    --mainbaige: #f6f3eb;
+
+    /* Font Sizes */
+
+    /* Spacing */
+
+    --dekstopSmall: 1rem;
+    --dekstopMedium: 2rem;
+    --dekstopLarge: 3rem;
+
+    --mobileSmall: 0.5rem;
+    --mobileMedium: 1rem;
+    --mobileLarge: 1.5rem;
+
+    --desktopBorder: 3rem;
+    --mobileBorder: 1.5rem;
+
+}

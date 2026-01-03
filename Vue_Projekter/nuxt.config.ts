@@ -3,5 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   pages: true,
+  components:true,
   srcDir: '.',
+  css: ['@/assets/css/main.css'],
+  
 })
