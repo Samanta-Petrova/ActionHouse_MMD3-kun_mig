@@ -1,10 +1,108 @@
+<script setup>
+import Header from '../components/navigation.vue'
+import FlipCards from '../components/FlipCards.vue'
+</script>
+
 <template>
-  <div>
-    <h1>Welcome to Projekt Action House</h1>
-    <p>This is your homepage. Explore our activities and learn more about what we offer.</p>
-  </div>
-  <NuxtLink to="/">Home</NuxtLink>
-<NuxtLink to="/aktiviteter">Aktiviteter</NuxtLink>
-<NuxtLink to="/test">Test</NuxtLink>
+  <Header />
+
+<body>
+  
+<main>
+    <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="../assets/vid/Action-house-1.1-II-_1_-_1_.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <section>
+    <h1 class="forsideTitles">Sjov og action for alle</h1>
+    <p class="forsideParagraphs forsideMaxLength">
+      Hos Action House i Løkken finder du et væld af sjove aktiviteter og oplevelser fordelt på 12.530 m².
+      Længere nede på siden kan du læse om historien bag Action House Funcenter samt se en tidslinje for,
+      hvornår vores forskellige forlystelser blev etableret. Vi tilbyder sjove og unikke oplevelser for
+      både børn og voksne.
+    </p>
+  </section>
+
+
+  <FlipCards />
+
+  <h2 class="forsideTitles">Om os</h2>
+
+  <section class="omOsSection">
+    <p class="forsideParagraphs">
+      Action House Funcenter er stedet, hvor fart, fællesskab og sjove oplevelser mødes.
+      Uanset om du kommer for at konkurrere, grine eller skabe minder med venner, familie
+      eller kolleger, har vi rammerne til en dag fyldt med action.
+      <br><br>
+      Læs mere på <a href="#">Om os.</a>
+    </p>
+
+    <img class="imgWidthFix" src="./assets/img/actionhouseFacade.webp" alt="">
+  </section>
+
+  <button>Læs mere</button>
+
+  <section>
+    <h2 class="forsideTitles">Galleri</h2>
+    <img src="./assets/img/GokartKoersel.webp" alt="">
+    <img src="./assets/img/Gokartpodium.webp" alt="">
+    <img src="./assets/img/Gokarthjelme.webp" alt="">
+  </section>
+</main>
+
+</body>
  
 </template>
+
+<style scoped>
+
+  .hero-video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.forsideTitles {
+  text-align: left;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  color: #154B82;
+}
+
+.forsideParagraphs {
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.omOsSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.imgWidthFix {
+  width: 50%;
+}
+
+.forsideMaxLength{
+  max-width: 50%;
+}
+
+img {
+  border-radius: var(--desktopBorder);
+}
+
+</style>

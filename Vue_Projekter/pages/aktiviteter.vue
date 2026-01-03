@@ -1,6 +1,9 @@
-
+<script setup>
+    import Header from '../components/navigation.vue'
+</script>
 
 <template>
+    <Header />
     <div>
     <h1>Aktiviteter.</h1>
     <p>Her finder du alle aktiviteter i Projekt Action House.</p>
