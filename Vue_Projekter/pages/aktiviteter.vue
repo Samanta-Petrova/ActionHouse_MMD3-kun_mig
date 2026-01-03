@@ -8,6 +8,8 @@
 <NuxtLink to="/">Home</NuxtLink>
 <NuxtLink to="/aktiviteter">Aktiviteter</NuxtLink>
 <NuxtLink to="/test">Test</NuxtLink>
+<NuxtLink to="/booking">booking</NuxtLink>
+
 </template>
  
 

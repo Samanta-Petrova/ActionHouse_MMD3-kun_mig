@@ -4,10 +4,9 @@
     <nav>
         <ul>
             <NuxtLink to="/">home</NuxtLink>
-            <NuxtLink to="/aktiviteter">home</NuxtLink>
-            <NuxtLink to="/test">home</NuxtLink>
-            <li>spisning</li>
-            <li>om os</li>
+            <NuxtLink to="/aktiviteter">aktiviteter</NuxtLink>
+            <NuxtLink to="/test">test</NuxtLink>
+            <NuxtLink to="/booking">booking</NuxtLink>
         </ul>
     </nav>
 </template>

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- <header>
+    <header>
       <nav>
         <NuxtLink to="/">Home</NuxtLink> |
         <NuxtLink to="/aktiviteter">Aktiviteter</NuxtLink> |
         <NuxtLink to="/test">Test</NuxtLink>
       </nav>
-    </header> -->
-<Navigation></Navigation> 
+    </header>
+
     <main>
       <NuxtPage />
     </main>
