@@ -2,6 +2,7 @@
 import Header from '../components/navigation.vue'
 import FlipCards from '../components/FlipCards.vue'
 import Galleri from '../components/Galleri.vue'
+import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -49,15 +50,18 @@ import Galleri from '../components/Galleri.vue'
           <img src="../assets/img/actionhouseFacade.webp" alt="">
         </div>
       </div>
-    </section>
 
-    <button class="forsideButton">Læs mere</button>
+      <button class="forsideButton">Læs mere</button>
+    </section>
 
     <section>
       <h2 class="forsideTitles">Galleri</h2>
       <Galleri />
     </section>
   </main>
+
+<Footer />
+
 </template>
 
 <style scoped>
@@ -82,9 +86,14 @@ import Galleri from '../components/Galleri.vue'
   margin-bottom: 2rem;
 }
 
+.forsideMaxLength {
+  max-width: 50%;
+}
+
 .omOsSection {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -94,6 +103,7 @@ import Galleri from '../components/Galleri.vue'
   flex-direction: row;
   max-width: 80%;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .omOsText {
@@ -110,43 +120,22 @@ import Galleri from '../components/Galleri.vue'
   object-fit: cover;
 }
 
-.imgWidthFix {
-  width: 50%;
+.forsideButton {
+  padding: 0.75rem 2.5rem;
+  background-color: #D41E2A;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--desktopBorder);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.forsideMaxLength {
-  max-width: 50%;
+.forsideButton:hover {
+  background-color: #154B82;
 }
 
 img {
   border-radius: var(--desktopBorder);
 }
-
-.forsideButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12rem;      
-  height: 4rem;     
-  background-color: #D41E2A;
-  border: none;
-  border-radius: .5rem; 
-  cursor: pointer;
-  margin-top: 19rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
-.forsideButton:hover {
-  background-color: #154B82;
-  transform: translate(-50%, -50%) scale(1.1);
-  transition: all 0.2s ease;
-}
-
-
 </style>

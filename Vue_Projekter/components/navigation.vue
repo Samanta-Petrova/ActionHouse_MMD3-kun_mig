@@ -7,7 +7,7 @@
         </div>
 
         <ul class="nav-links">
-            <li><NuxtLink to="/">Home</NuxtLink></li>
+            <li><NuxtLink to="/">Forside</NuxtLink></li>
             <li><NuxtLink to="/aktiviteter">Aktiviteter</NuxtLink></li>
             <li><NuxtLink to="/test">Test</NuxtLink></li>
             <li><NuxtLink to="/spisning">Spisning</NuxtLink></li>
