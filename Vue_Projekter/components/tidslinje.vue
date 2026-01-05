@@ -15,7 +15,7 @@ const prevStep = () => {
 </script>
 
 <template>
-<div>
+<div class="timelineWrapper">
     <div class="timelines">
         <span :class="{ active: timeline === 1 }">1994</span>
         <span :class="{ active: timeline === 2 }">2000</span>
@@ -27,14 +27,18 @@ const prevStep = () => {
         <p>1994: Action House åbner i de gamle RC Caravans-bygninger med indendørs gokart og bowling - det første kombinerede Funcenter i Danmark.</p>
         <p>1995: Udvidelse med et af Nordens største diskoteker og lasergame inspireret af New York.</p>
         <p>1997: Indendørs paintballbane etableres.</p>
-        <button @click="nextStep">næste</button>
+        <div class="timelineButton">
+            <button @click="nextStep">næste</button>
+        </div>
     </div>
     <div class="timelineContainer" v-if="timeline === 2">
         <p>2000: Drive-in biograf åbner.</p>
         <p>2005: Stormen rammer, taget blæser af, centeret lukker i 4 måneder.</p>
         <p>2007-2009: Gokartbanen udvides, kurvesvinget etableres, bar og spillehal flyttes, og 2 ekstra bowlingbaner opføres.</p>
-        <button @click="prevStep">tilbage</button>
-        <button @click="nextStep">næste</button>
+        <div class="timelineButton">
+            <button @click="prevStep">tilbage</button>
+            <button @click="nextStep">næste</button>
+        </div>
     </div>
     <div class="timelineContainer" v-if="timeline === 3">
         <p>2010: Legeland på 200 m² for børn 0-12 år, inkl. område for de mindste.</p>
@@ -42,36 +46,46 @@ const prevStep = () => {
         <p>2013: Solceller producerer nu 50% af vores strømforbrug (ca. 160.000 kWh årligt).</p>
         <p>2013/2014: Introduktion af skydesimulator.</p>
         <p>2015: Lasergame udvides til 600 m², nu en af Danmarks største baner.</p>
-        <button @click="prevStep">tilbage</button>
-        <button @click="nextStep">næste</button>
+        <div class="timelineButton">
+            <button @click="prevStep">tilbage</button>
+            <button @click="nextStep">næste</button>
+        </div>
     </div>
     <div class="timelineContainer" v-if="timeline === 4">
         <p>2016-2017: “Den hjemsøgte labyrint” til Halloween, og gokartbanen udvides med 4.500 m², nu verdens største med 1,1 km bane og 32 gokarts samtidig.</p>
         <p>2019: Paintballbanen nedlægges til fordel for VEX VR arena.</p>
         <p>2024/2025: Stort legeland på 1.250 m² klar i 2025</p>
-        <button @click="prevStep">tilbage</button>
-    </div>
-    
+        <div class="timelineButton">
+            <button @click="prevStep">tilbage</button>
+        </div>
+    </div>    
 </div>
 </template>
 
 <style scoped>
 
+.timelineWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .timelines{
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
+    max-width: 1000px;
 }
 
 .timelines span{
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: var(--mainblue);
+    background:  #277CD3;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 3rem;
     color: white;
 }
 
@@ -85,6 +99,28 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 100px 100px;
+}
+
+.timelineContainer p{
+    max-width: 70ch;
+}
+
+.timelines .active{
+    background: var(--mainblue);
+}
+
+.timelineButton{
+    display: flex;
+    margin: 1rem;
+    justify-content: space-evenly;
+}
+
+.timelineButton button{
+    background: var(--mainblue);
+    color: white;
+    border-radius: 5px;
+    border-color: none;
+    padding: 8px;
+    font-size: 1.3rem;
 }
 </style>
