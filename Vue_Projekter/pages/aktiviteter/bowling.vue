@@ -7,15 +7,14 @@ import Galleri from '../components/Galleri.vue'
 <template>
   <Header />
 
-  <!-- Hero image udenfor container -->
   <img
     src="../../assets/img/bowlingHeroIMG.webp"
     alt="Bowling baner hos Action House"
-    class="hero-image"
+    class="bowling-hero"
   />
 
   <main class="bowling-page">
-    <section class="intro">
+    <section class="bowling-intro">
       <h1>Moderne bowlingbaner</h1>
 
       <p>
@@ -32,8 +31,8 @@ import Galleri from '../components/Galleri.vue'
       </ul>
     </section>
 
-    <section class="info-grid">
-      <article class="info-card">
+    <section class="bowling-info-grid">
+      <article class="bowling-card">
         <h3>Bowling info</h3>
         <ul>
           <li>Antal baner, 8</li>
@@ -42,7 +41,7 @@ import Galleri from '../components/Galleri.vue'
         </ul>
       </article>
 
-      <article class="info-card">
+      <article class="bowling-card">
         <h3>Bowling priser</h3>
         <ul>
           <li>Bane pr. time 239,-</li>
@@ -54,7 +53,7 @@ import Galleri from '../components/Galleri.vue'
         </ul>
       </article>
 
-      <article class="info-card">
+      <article class="bowling-card">
         <h3>Power bowlingpakker</h3>
         <ul>
           <li>Spirituspakken til 699,- kr.</li>
@@ -63,13 +62,13 @@ import Galleri from '../components/Galleri.vue'
           <li>Shotspakken til 679,- kr.</li>
         </ul>
 
-        <a href="/powerbowling" class="read-more">
+        <a href="/powerbowling" class="bowling-read-more">
           Læs mere om pakker →
         </a>
       </article>
     </section>
 
-    <section class="power-bowling">
+    <section class="bowling-power">
       <h2>Power Bowling, fest og action</h2>
 
       <p>
@@ -93,17 +92,17 @@ import Galleri from '../components/Galleri.vue'
         bowling og festlig stemning.
       </p>
 
-      <a href="/booking" class="bowlingButton">Book nu</a>
+      <a href="/booking" class="bowling-button">Book nu</a>
     </section>
 
-    <Galleri class="galleriSpacer" />
+    <Galleri class="bowling-gallery" />
   </main>
 
   <Footer />
 </template>
 
 <style scoped>
-.hero-image {
+.bowling-hero {
   width: 100vw;    
   height: 50vh;       
   object-fit: cover;  
@@ -119,70 +118,55 @@ import Galleri from '../components/Galleri.vue'
   padding-top: 0;
 }
 
-.intro h1 {
+.bowling-intro h1 {
   color: #154B82;
   margin-bottom: 1rem;
 }
 
-.intro p,
-.intro ul {
+.bowling-intro p,
+.bowling-intro ul {
   margin-bottom: 1rem;
 }
 
-.info-grid {
+.bowling-info-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin: 3rem 0;
 }
 
-.info-card {
+.bowling-card {
   background: rgba(21, 75, 130, 0.25);
   padding: 1.5rem;
   border-radius: 12px;
-  height: 100%;
 }
 
-.info-card h3 {
+.bowling-card h3 {
   color: #154B82;
   margin-bottom: 1rem;
 }
 
-.info-card li {
-  margin-left: 0rem;
-}
-
-.read-more {
+.bowling-read-more {
   display: inline-block;
   margin-top: 1rem;
   color: #154B82;
   text-decoration: underline;
 }
 
-.power-bowling {
+.bowling-power {
   margin-top: 4rem;
 }
 
-.power-bowling h2 {
+.bowling-power h2 {
   color: #154B82;
   margin-bottom: 1rem;
 }
 
-.cta-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 2rem;
-  background: #D41E2A;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.galleriSpacer {
+.bowling-gallery {
   margin-top: 5rem;
 }
 
-.bowlingButton {
+.bowling-button {
   display: block;             
   width: 4rem;
   margin: 2rem auto 0 auto;    
@@ -197,7 +181,7 @@ import Galleri from '../components/Galleri.vue'
   text-align: center;   
 }
 
-.bowlingButton:hover {
+.bowling-button:hover {
   background-color: #154B82;
 }
 </style>
