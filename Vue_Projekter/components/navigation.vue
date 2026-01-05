@@ -1,4 +1,4 @@
-
+<script></script>
 
 <template>
     <nav>
@@ -7,6 +7,7 @@
             <NuxtLink to="/aktiviteter">aktiviteter</NuxtLink>
             <NuxtLink to="/test">test</NuxtLink>
             <NuxtLink to="/booking">booking</NuxtLink>
+            <NuxtLink to="/omOs">om os</NuxtLink>
         </ul>
     </nav>
 </template>

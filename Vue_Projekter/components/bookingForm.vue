@@ -83,6 +83,7 @@ const spiseOpt = [
 ]
 
 // list over steder folk kan have hørt om action house
+
 const valgtLokation = ref([])
 
 const lokationer = [
@@ -232,12 +233,12 @@ const visTilbud = ref(false)
       <h2>kommentarer</h2>
       <div class="kommentarerContainer">
         <input type="text">
-        <div>
+        <div class="godkendContainer">
           <h3>tilmeld nyhedsbrev</h3>
           <input type="checkbox">
           <label for="nyhedsbrev">ja tak</label>
         </div>
-        <div>
+        <div class="godkendContainer">
           <h3>Persondata godkendelse</h3>
           <p>Jeg godkender hermed at Action House Løkken må bruge de ovenfor indtastede oplysninger i forbindelse med booking af aktiviteter. Action House bruger udelukkende disse oplysninger for at kunne foretage en booking af valgte aktiviterer. Yderligere oplysninger kan findes i vores privatlivspolitik</p>
           <input type="checkbox">
@@ -260,6 +261,7 @@ const visTilbud = ref(false)
   gap: 10px;
   justify-content: space-evenly;
 }
+
 .steps span {
   width: 50px;
   height: 50px;
@@ -289,11 +291,18 @@ input{
 }
 .step button{
     width: 100px;
+    margin: 1rem;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 1rem;
 }
 
+button{
+  background: var(--mainblue);
+  color: white;
+  border-radius: 5px;
+  border-color: none;
+  padding: 8px;
+}
 
 
 .checkboxContainer { 
@@ -301,7 +310,6 @@ input{
   gap: 15px; 
   padding: 20px; 
   justify-content: space-between;
-  
 }
 
 
@@ -341,7 +349,6 @@ input{
   padding: 20px; 
   justify-content: space-evenly;
   flex-direction: column;
-  
 }
 
 
@@ -354,13 +361,17 @@ input{
 .kommentarerContainer input{
   padding-right: 200px;
   padding-bottom: 100px;
-
 }
 
 
+.godkendContainer input[type="checkbox"] { 
+  margin-right: 10px;  
+  width: 50px;
+  } 
 
-
-
-
+.godkendContainer p{
+  width: 50ch;
+  font-size: 0.9rem;
+}
 
 </style>
