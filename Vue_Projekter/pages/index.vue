@@ -128,7 +128,7 @@ import Footer from '../components/Footer.vue'
   border-radius: var(--desktopBorder);
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.5s ease;
 }
 
 .forsideButton:hover {

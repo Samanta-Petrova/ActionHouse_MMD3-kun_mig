@@ -1,5 +1,4 @@
 <script setup>
-
 import Header from '../components/navigation.vue'
 import Footer from '../components/Footer.vue'
 import FAQ from '../components/FAQ.vue'
@@ -13,21 +12,24 @@ import Virtualreality from '../assets/img/VirtualReality.webp'
 import VREscape from '../assets/img/VREscape.webp'
 
 const cards = [
-  { title: 'Bowling', caption: 'Sjov for alle', description: 'Tag venner og familie med til bowling i moderne baner.', image: BowlingImg },
-  { title: 'Gokart', caption: 'Fart og spænding', description: 'Oplev høj fart på vores indendørs gokartbane.', image: GokartImg },
-  { title: 'Lasergame', caption: 'Action og taktik', description: 'Kæmp mod vennerne i vores lasergame arena.', image: LasergameImg },
-  { title: 'Spillehal', caption: 'Spillehal til familien', description: 'Nyd sjove arkadespil i spillehalen.', image: Spillehal },
-  { title: 'Legeland', caption: 'Legeland til børn', description: 'Sjov og leg for de mindste.', image: Legeland },
-  { title: 'Virtual Reality', caption: 'Virtual reality', description: 'Oplev VR i verdensklasse.', image: Virtualreality },
-  { title: 'VR Escaperoom', caption: 'Firma og grupper', description: 'Perfekt til firmaevents og grupper.', image: VREscape }
+  { title: 'Bowling', description: 'Hvis du er til bowling, så er Action House stedet. Oplev sjov bowling for hele familien i vores bowlingcenter.', image: BowlingImg },
+  { title: 'Gokart', description: 'Danmarks fedeste indendørs gokartbane. Oplev høj fart på vores indendørs gokartbane, som er en af Danmarks længste baner!', image: GokartImg },
+  { title: 'Lasergame', description: 'Prøv Laser Maxx Lasergame i Action House. En sjov oplevelse for hele familien, venner eller kolleger', image: LasergameImg },{ title: 'Legeland', description: 'Stort legeland hvor børnene kan have det sjovt. Hos Action House har vi et legeland for børn i alle aldre.', image: Legeland },
+  { title: 'Spillehal', description: 'I Action House har vi udover alle vores andre attraktioner en spillehal med bl.a. Pool, Billiard, Air-hockey og meget mere', image: Spillehal },
+  
+  { title: 'Virtual Reality', description: 'Stort VEX Virtual Reality Arena. Kom til Action House og oplev vores super sjove VR Arena og nedkæmp zombier med venner og familie.', image: Virtualreality },
+  { title: 'VR Escaperoom', description: 'Tag de virtuelle briller og udstyr på og bevæg dig på mission med vennerne, familien eller kollegaerne på vores nye Vex Virtuel Reality Escaperoom.', image: VREscape }
 ]
+
+const slugify = title =>
+  title.toLowerCase().replace(/\s+/g, '-')
 </script>
 
 <template>
   <Header />
 
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="../assets/vid/BrandingVideo.mp4" type="video/mp4" />
+    <source src="../../assets/vid/BrandingVideo.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
@@ -59,12 +61,22 @@ const cards = [
         </div>
 
         <div class="flip-card-bagside">
-          <p>{{ card.description }}</p>
+          <div>
+            <p>{{ card.description }}</p>
+
+            <NuxtLink
+              :to="`/aktiviteter/${slugify(card.title)}`"
+              class="read-more-link"
+            >
+              Læs mere om {{ card.title }}
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
   </section>
-    <FAQ />
+
+  <FAQ />
   <Footer />
 </template>
 
@@ -167,6 +179,18 @@ const cards = [
   text-align: center;
 }
 
+.read-more-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #154B82;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.read-more-link:hover {
+  color: #cc1824;
+}
+
 .aktOverskrift {
   text-align: center;
   margin-top: 2rem;
@@ -178,5 +202,4 @@ const cards = [
   margin: 2rem 20rem;
   color: #154B82;
 }
-
 </style>
