@@ -8,8 +8,8 @@
 
         <ul class="nav-links">
             <li><NuxtLink to="/">Forside</NuxtLink></li>
+            <li><NuxtLink to="/tilbudspakker">Tilbudspakker</NuxtLink></li>
             <li><NuxtLink to="/aktiviteter">Aktiviteter</NuxtLink></li>
-            <li><NuxtLink to="/test">Test</NuxtLink></li>
             <li><NuxtLink to="/spisning">Spisning</NuxtLink></li>
             <li><NuxtLink to="/omos">Om os</NuxtLink></li>
         </ul>
