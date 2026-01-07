@@ -126,6 +126,10 @@
         color: var(--mainblue);
     }
 
+    h3{
+        color: var(--mainblue);
+    }
+
     p{
         width: 70ch;
         line-height: 30px;
@@ -191,6 +195,7 @@
 
     .buffetImg img{
         width: 501px;
+        object-fit: cover;
     }
     .buffetContainer .juleBuffetImg{
         grid-column: 2 / 3;
@@ -201,9 +206,7 @@
     }
 
     .juleBuffetImg img{
-        width: 100%;
-        max-width: 30vw;
-        max-height: 60vh;
+        width: 501px;
     }
     
     @media (max-width: 400px) {
@@ -274,6 +277,7 @@
     .buffetContainer .buffetImg{
         grid-column: 1 / 1;
         grid-row: 3 / 4;
+        justify-content: center;
     }
 
     .buffetContainer h2{
@@ -293,13 +297,21 @@
 
     .buffetImg img{
         width: 300px;
-        justify-content: center;
-        align-items: center;
     }
 
     .buffetContainer{
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+    }
+
+    .buffetContainer .juleBuffetImg{
+        grid-column: 1 / 1;
+        grid-row: 3 / 3;
+        justify-content: center;
+    }
+
+    .juleBuffetImg img{
+        width: 300px;
     }
 
     }

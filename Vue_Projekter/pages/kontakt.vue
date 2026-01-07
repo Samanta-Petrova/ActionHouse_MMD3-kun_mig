@@ -61,9 +61,23 @@ h2{
 
 img{
     width: 100vw;
-    height: 50vh;
+    max-height: 50vh;
     object-fit: cover;
 }
 
+@media (max-width: 400px){
+    
+    .kontaktContainer{
+        flex-direction: column;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    
+    h2{
+        font-size: 2.5rem;
+    }
+
+
+}
 
 </style>

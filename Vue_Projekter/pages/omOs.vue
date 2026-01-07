@@ -33,11 +33,32 @@ h1{
 }
 img{
     width: 100vw;
-    height: 50vh;
+    max-height: 50vh;
     object-fit: cover;
 }
 
 p{
     width: 70ch;
+}
+
+@media (max-width: 400px) {
+    nav{
+        display: none;
+    }
+    
+    template{
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    h1{
+        font-size: 2rem;
+        width: 15ch;
+    }
+
+    p{
+        font-size: 0.9rem;
+        width: 40ch;
+    }
 }
 </style>
