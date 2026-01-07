@@ -51,7 +51,7 @@ import Footer from '../components/Footer.vue'
         </div>
       </div>
 
-      <button class="forsideButton">Læs mere</button>
+      <a href="/omos"><button class="forsideButton">Læs mere</button></a>
     </section>
 
     <section>

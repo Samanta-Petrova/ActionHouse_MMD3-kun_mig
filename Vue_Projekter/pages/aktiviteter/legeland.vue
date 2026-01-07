@@ -84,9 +84,10 @@ import Galleri from '../components/Galleri.vue'
 }
 
 .bowling-page {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  margin-left: 8.65625rem;
+  margin-right: 8.65625rem;
   padding-top: 0;
 }
 
