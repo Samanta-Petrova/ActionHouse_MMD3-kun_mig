@@ -32,6 +32,14 @@ const activeCategory = ref('all')
       <button @click="activeCategory = 'gokart'" :class="{ active: activeCategory === 'gokart' }">Gokart</button>
     </nav>
 
+    <section class="tilbudSection">
+        <h2 class="h2Blue">Tilbud</h2>
+        <div class="tilbudBooking">
+        <p>Her finder du vores tilbudspakker, hvor flere af Action House Funcenters mest populære aktiviteter er samlet i én oplevelse. Pakkerne gør det nemt at planlægge en dag fyldt med action, sjov og fællesskab, uanset anledning.</p>
+        <button>Book nu</button>
+        </div>
+    </section>
+
     <section v-if="activeCategory === 'all'">
       <h3 class="category-title">Action pakker</h3>
       <div class="gokart-info-grid">
@@ -259,7 +267,36 @@ const activeCategory = ref('all')
   object-position: center 50%;
   margin: 0;
   display: block;
+  margin-bottom: 5rem;
 }
+
+.tilbudBooking{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tilbudBooking button {
+display: block;
+  width: 10rem;
+  height: 4rem;
+  padding: 0.75rem 2.5rem;
+  background-color: #D41E2A;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--desktopBorder);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  text-align: center;
+  align-self: center;
+  line-height: normal;
+}
+
+.tilbudBooking button:hover {
+  background-color: #154B82;
+}
+
+
 
 .gokart-page {
   max-width: 1200px;
@@ -273,10 +310,19 @@ const activeCategory = ref('all')
   margin-bottom: 1rem;
 }
 
-.category-title,
+.category-title, .h2Blue,
 .gokart-card h3 {
   color: #154B82;
   margin-bottom: 1rem;
+}
+
+.tilbudSection p {
+    max-width: 60%;
+    line-height: 2rem;
+}
+
+.category-title{
+    font-size: 1.7rem;
 }
 
 .package-nav {
@@ -312,7 +358,7 @@ const activeCategory = ref('all')
 }
 
 .gokart-card {
-  background: rgba(21, 75, 130, 0.25);
+  background: #DFE4E5;
   padding: 1.5rem;
   border-radius: 12px;
 }
@@ -339,6 +385,10 @@ const activeCategory = ref('all')
 
 .gokart-button:hover {
   background-color: #154B82;
+}
+
+*{
+    line-height: 2rem;
 }
 
 </style>
