@@ -1,5 +1,6 @@
 <script setup>
     import navigation from '~/components/navigation.vue';
+    import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -11,6 +12,9 @@
     <p>Action House Funcenter i Løkken tilbyder attraktioner og oplevelser ud over det sædvanlige på hele 12.530 m². Her kan du prøve alt fra Danmarks største indendørs gokartbane til lasergame, bowling, legeland, VR-oplevelser og meget mere - perfekt til familier, venner og firmaevents.</p>
 </section>
 <tidslinje></tidslinje>
+
+<Footer />
+
 </template>
 
 <style scoped>

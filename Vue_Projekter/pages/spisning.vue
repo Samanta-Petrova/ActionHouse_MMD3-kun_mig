@@ -1,5 +1,6 @@
 <script setup>
     import navigation from '~/components/navigation.vue';
+    import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -87,6 +88,9 @@
         </article>
     </section>
 </div>
+
+<Footer />
+
 </template>
 
 <style scoped>

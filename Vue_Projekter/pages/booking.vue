@@ -1,6 +1,7 @@
 <script>
 import bookingForm from '~/components/bookingForm.vue';
 import navigation from '~/components/navigation.vue';
+import Footer from '../components/Footer.vue'
 </script>
 
 <template>
@@ -25,6 +26,8 @@ import navigation from '~/components/navigation.vue';
 <div class="bookingContainer">
 <BookingForm></BookingForm>
 </div>
+
+<Footer />
 
 </template>
 
