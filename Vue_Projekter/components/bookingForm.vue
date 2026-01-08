@@ -7,24 +7,24 @@ const step = ref(1)
 
 // steps data
 const formData = ref({
-    name: '',
-    lastName: '',
-    email: '',
-    telefonNr: '',
-    date: '',
-    time:'',
-    antalDeltagere: '',
+    name: "",
+    lastName: "",
+    email: "",
+    telefonNr: "",
+    date: "",
+    time:"",
+    antalDeltagere: "",
 })
 
 
 
 // navigere steps
-// via en if statement kan funktionen læse hvad værdien den span den står på og hvis den værdi er mindre en syv kan den ligge et tal oven i og navigere videre til den den næste span som har en value der er en højere. den skal ikke kunne gå over 7 fordi der ikke er flere steps i booking formularen
+// en if statement der læser step value og hvis den value er under syv ligger 1 tal oven i steps value
 const nextStep = () => {
     if (step.value < 7) step.value++
 }
 
-// samme som funktionen oven over ved at en if statement kan den læse valuen af den span den står på og hvis værdien er højere end 1 kan trække et tal fra og på den måde navigere en span tilbage vha. at læse den næste spans value
+// samme funktion som oven over en funktion med en if statement der kan læse step value og hvis værdien er over 1 kan den trække 1 fra steps value
 const prevStep = () => {
     if (step.value > 1) step.value--
 }
@@ -36,6 +36,7 @@ const sumbitForm = () => {
 }
 
 // dropdown til tilbudspakker
+// en variabel der binder det valgt tilbud ind i variablen som du vælger nede i select via v-model
 const valgtTilbud = ref("") 
 
 const tilbudspakker = [
@@ -56,8 +57,10 @@ const tilbudspakker = [
 ]
 
 // liste over aktiviteter
+// en variabel der gemmer de valg du klikker af i checkboxen via v-model binder den dine valg ind i en liste som gemmer de valg
 const valgtAktivitet = ref([]) 
 
+// et arrat med enkelte aktiviteter
 const aktiviteter = [
   "Bowling",
   "10min Gokart",
@@ -74,8 +77,10 @@ const aktiviteter = [
   "24min Virtuel reality (min 12 år)"
 ]
 // liste over spisemuligheder
+// en variabel der gemmer de valg du klikker af i checkboxen via v-model binder den dine valg ind i en liste som gemmer de valg
 const valgtSpiseOpt = ref([]) 
 
+// et array med spise muligheder
 const spiseOpt = [
   "forret",
   "hovedret",
@@ -86,8 +91,10 @@ const spiseOpt = [
 
 // list over steder folk kan have hørt om action house
 
+// en variabel der gemmer de valg du klikker af i checkboxen via v-model binder den dine valg ind i en liste som gemmer de valg
 const valgtLokation = ref([])
 
+// et array over de forskellige lokationer
 const lokationer = [
   "Google",
   "Facebook",
@@ -98,20 +105,20 @@ const lokationer = [
   "Familie/Venner/Kollegaer",
   "Avis",
   "Internettet",
-  "løkken.dk",
-  "blokhus.dk",
-  "visit Nordvestkysten",
-  "tv"
+  "Løkken.dk",
+  "Blokhus.dk",
+  "Visit Nordvestkysten",
+  "TV"
 ]
 
-// dette er variabler som søger for at det indhold der ligger inde i checkbox div'en ikke bliver vist med mindre man chekker boxen af i grænsefalden. 
+// dette er variabler som søger for at det indhold der ligger inde i checkbox div'en ikke bliver vist med mindre man chekker boxen af i grænsefalden.
 const visAktivitet = ref(false)
 const visTilbud = ref(false)
 </script>
 
 <template>
  <div class="booking-form">
-<!-- dette er vores progress bar som fungere på den måde at du har en span med active class. hver span har fået tildelt en value det matcher med den div med samme value. der indholder det data som passer ind i den del af progress baren. det virker på den måde at den kan navigere imellem de andre spans, via deres value som forklaret i funktionerne oven over. hver span passer til et step i bookingformularen-->
+<!-- dette er vores progress bar som fungere på den måde at du har en span som har fået tildelt et objekt og hvis valuen matcher med den value step har skal denne span have classen active. via dynamisk binding binder den active class ind på span 1 hvis step value er = 1-->
     <div class="steps">
       <span :class="{ active: step === 1 }">1</span>
       <span :class="{ active: step === 2 }">2</span>
@@ -122,13 +129,69 @@ const visTilbud = ref(false)
       <span :class="{ active: step === 7 }">7</span>
     </div>
 
-    <!-- Step 1 person oplysninger-->
+    <!-- Step 1 valg af aktivitet-->
+     <div class="step" v-if="step === 1">
+        <h2>Valg af Aktivitet</h2>
+        <div class="checkboxContainer">
+          <div>
+            <div class="checkboxValg">
+              <label for="vælgTilbudspakker">Tilbudspakker</label>
+              <!-- en check box som har en default værdi på false og når den bliver tjekket af ændre værdien sig til true -->
+              <input type="checkbox" id="vælgTilbudspakke" v-model="visTilbud">
+            </div>
+            <!-- hvis værdien er true i variablen vistlbud skal den vise den select i DOM'en hvis ikke skal den er false skal den ikke renders -->
+            <select v-if="visTilbud" name="vælgTilbudspakker" id="vælgTilbudspakker" v-model="valgtTilbud">
+              <!-- viser den tomme værdi når man ikke har valgt noget -->
+              <option disabled value="">Vælg et tilbud</option>
+              <!-- en for each statement der laver en option for hver af de strings som er gemt i arrayet tilbudspakker -->
+              <option v-for="tilbudspakke in tilbudspakker" :key="tilbudspakke" >{{ tilbudspakke }}</option>
+            </select>
+          </div>
+          <div> 
+            <div class="checkboxValg">
+              <label for="vælgAktiviteter">Aktiviteter</label>
+              <!-- Checkbox der viser/skjuler listen --> 
+              <input type="checkbox" id="vælgAktivitet" v-model="visAktivitet">
+            </div>
+          <!-- hvis værdien er true i variablen vistlbud skal den vise den select i DOM'en hvis ikke skal den er false skal den ikke renders -->
+            <div v-if="visAktivitet"> 
+              <div v-for="aktivitet in aktiviteter" :key="aktivitet" class="singleAktivitet">             
+                  <input type="checkbox" :id="aktivitet" v-model="valgtAktivitet" > 
+                  <label :for="aktivitet">{{ aktivitet }}</label> 
+              </div> 
+          </div> 
+        </div>
+        </div>
+        <div>
+          <button @click="nextStep">næste</button>
+        </div>         
+    </div>
     <!-- en if statement der gør at vis steps value er = 1 skal den render dette indhold -->
-    <div class="step" v-if="step === 1">
+    
+
+    <!-- Step 2 spisning-->
+    <div class="step" v-if="step === 2">
+      <h2>Spisning</h2>
+      <div class="spisningContainer">
+        <div v-for="food in spiseOpt" :key="food" class="foodContainer">
+          <input type="Checkbox" :id="food" v-model="valgtSpiseOpt">
+          <label :for="food">{{ food }}</label>
+        </div>
+      </div>
+      <div>
+        <button @click="prevStep">tilbage</button>
+        <button @click="nextStep">Næste</button>
+      </div>
+    </div>
+    
+ 
+    <!-- Step 4 person oplysninger-->
+    <div class="step" v-if="step === 3">
       <div class="personoplysninger">
         <h2>Person Oplysninger</h2>
         <label for="fornavn">Fornavn</label>
         <br>
+        <!-- v-model binder den data som bliver inputet i fornavns feltet ind i formdata vairablen fornavn og gemmer den data så den kan blive sendt ind i consolen -->
         <input type="text" placeholder="fornavn" v-model="formData.name" />
         <br>
         <label for="efternavn">Efternavn</label>
@@ -142,12 +205,15 @@ const visTilbud = ref(false)
         <label for="telefon">Telefon nr</label>
         <br>
         <input type="tel" placeholder="+45 00 00 00 00" v-model="formData.tel">
-        <button @click="nextStep">Næste</button>
+        <div>
+          <button @click="prevStep">Tilbage</button>
+          <button @click="nextStep">Næste</button>
+        </div>
       </div>
     </div>
 
-    <!-- Step 2 dato og tid-->
-    <div class="step" v-if="step === 2">
+    <!-- step 5 dato og tid-->
+    <div class="step" v-if="step === 4">
       <div class="datoOgTid">
         <h2>Dato og Tid</h2>
         <label for="dato">Dato</label>
@@ -162,74 +228,34 @@ const visTilbud = ref(false)
         <br>
         <input type="text" v-model="formData.antalDeltagere">
         <div>
+          <!-- en knap med et en eventlistener der lytter efter et click. når en bruger klikker på knappen næste (funktionen nextStep) ligger den et tal oven i step value og når man klikker på og man klikker på tilbage (funktionen prevStep trækker den et tal fra step value) på den måde kan du navigere i gennem de forskellige div fordi de hver især har en if statement der fortæller at den skal render indholdet hvis diven har samme value som step. -->
             <button @click="prevStep">Tilbage</button>
             <button @click="nextStep">Næste</button>
         </div>
       </div>
     </div>
-
-    <!-- Step 3 vælg aktiviteter-->
-    <div class="step" v-if="step === 3">
-      <div>
-        <h2>Valg af Aktivitet</h2>
-        <div class="checkboxContainer">
-          <div>
-            <label for="vælgTilbudspakker">tilbudspakker</label>
-            <input type="checkbox" id="vælgTilbudspakke" v-model="visTilbud">
-            <br>
-            <br>
-            <select v-if="visTilbud" name="vælgTilbudspakker" id="vælgTilbudspakker" v-model="valgtTilbud">
-              <option disabled value="">Vælg et tilbud</option>
-              <option v-for="tilbudspakke in tilbudspakker" :key="tilbudspakke" >{{ tilbudspakke }}</option>
-            </select>
-          </div>
-          <div> 
-            <label for="vælgAktiviteter">Aktiviteter</label>
-            <!-- Checkbox der viser/skjuler listen --> 
-            <input type="checkbox" id="vælgAktivitet" v-model="visAktivitet">
-            <!-- Liste over aktiviteter --> 
-            <div v-if="visAktivitet"> 
-              <div v-for="aktivitet in aktiviteter" :key="aktivitet">
-              <input type="checkbox" :id="aktivitet" v-model="valgtAktivitet" > 
-              <label :for="aktivitet">{{ aktivitet }}</label> 
-            </div> 
-          </div> 
-        </div>
-        </div>
-      <div>
-          <button @click="prevStep">Tilbage</button>
-          <button @click="nextStep">næste</button>
-      </div>
-      </div>
-    </div>
-    <!-- step 4 spisning-->
-    <div class="step" v-if="step === 4">
-      <h2>Spisning</h2>
-      <div class="spisningContainer">
-        <div v-for="food in spiseOpt" :key="food" class="foodContainer">
-          <input type="Checkbox" :id="food" v-model="valgtSpiseOpt">
-          <label :for="food">{{ food }}</label>
-        </div>
-      </div>
-      <div>
-        <button @click="prevStep">tilbage</button>
-        <button @click="nextStep">Næste</button>
-      </div>
-    </div>
-    <!-- step 5 deltagerliste -->
+    
+    <!-- step 3 deltagerliste -->
     <div class="step" v-if="step === 5">
       <h2>deltagerliste</h2>
-      <input type="text" class="deltagerListe">
+      <p>(kun nødvendigt til bowling, gokart eller lasergame)</p>
+      <textarea name="deltagerListe" id="deltagerliste" rows="10" cols="50"></textarea>
+      <p>Skriv deltagernavne her - Så er navnene skrevet ind når i kommer.</p>
       <div>
         <button @click="prevStep">tilbage</button>
         <button @click="nextStep">næste</button>
       </div>
     </div>
+
+    <!-- step 6 inspiration til booking -->
     <div class="step" v-if="step === 6">
       <h2>Hvor fik du inspiration til Booking</h2>
       <div class="lokationContainer">
+        <!-- for each statement der skaber en checkbox og label for hver string der er gemt i variablen lokationer -->
         <div v-for="lokation in lokationer">
+          <!-- v-model binder vaulen fra checkboxen sammen med den variable der hedder valgtlokation som er dynmasik.  -->
           <input type="checkbox" class="lokationCheckbox" :id="lokation"  v-model="valgtLokation">
+          <!-- {{ lokation viser alle de muligheder de muligheder der er at vælge i mellem.  }} -->
           <label :for="lokation">{{ lokation }}</label>
         </div>
       </div>
@@ -238,10 +264,11 @@ const visTilbud = ref(false)
         <button @click="nextStep">næste</button>
       </div>
     </div>
+    <!-- step 7 kommentarer -->
     <div class="step" v-if="step === 7">
       <h2>kommentarer</h2>
       <div class="kommentarerContainer">
-        <input type="text">
+        <textarea name="kommentarfelt" id="kommentarfelt" rows="10" cols="50"></textarea>
         <div class="godkendContainer">
           <h3>tilmeld nyhedsbrev</h3>
           <input type="checkbox">
@@ -286,24 +313,37 @@ const visTilbud = ref(false)
   color: white;
 }
 
-input[type=text]{
-    max-width: 500px;
-    min-width: 50px;
-    height: 2rem;
-}
-input[type=email]{
-    max-width: 500px;
-    min-width: 50px;
-    height: 2rem;
-}
-input[type=tel]{
-    max-width: 500px;
-    min-width: 200px;
-    height: 2rem;
+
+.step input{
+  width: 100%;
+  max-width: 500px;
+  font-size: 1.1em;
 }
 
-input[type=checkbox]{
+.step input[type=checkbox]{
   transform: scale(1.8);
+}
+
+.step select{
+  width: 100%;
+  max-width: 500px;
+}
+
+.step option{
+  width: 100%;
+  max-width: 500px;
+}
+
+.step label{
+  font-size: 1.2rem;
+}
+
+.step h3{
+  font-size: 1.5rem;
+}
+
+.step p{
+  font-size: 1.3rem;
 }
 
 .step{
@@ -338,14 +378,13 @@ button{
   font-size: 1.2rem;
 }
 
-
 .checkboxContainer { 
   display: flex;
+  flex-direction: row;
   gap: 15px; 
   padding: 20px; 
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-
 
 .checkboxContainer input[type="checkbox"] { 
   margin-right: 10px;  
@@ -353,17 +392,40 @@ button{
   } 
     
 .checkboxContainer select { 
+  margin-top: 1rem;
   padding: 10px 12px; 
   background: white; 
-  font-size: 15px; 
+  font-size: 1rem; 
 } 
+
+.checkboxValg{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.singleAktivitet{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.singleAktivitet input[type="checkbox"]{
+  max-width: 50px;
+  padding-bottom: 0.5rem;
+}
+
+.singleAktivitet label{
+  width: 400px;
+  padding-bottom: 0.5rem;
+}
+
 .spisningContainer { 
   display: flex;
   gap: 15px; 
   padding: 20px; 
   justify-content: space-evenly;
   flex-direction: column;
-  
 }
 
 
@@ -371,12 +433,7 @@ button{
   margin-right: 10px;  
   width: 50px;
   } 
- 
 
-/* .deltagerListe{
-  width: 300px;
-  height: 200px;
-} */
 
 .lokationContainer { 
   display: flex;
@@ -404,34 +461,33 @@ button{
   width: 50px;
   } 
 
+
 .godkendContainer p{
   width: 50ch;
-  font-size: 0.9rem;
 }
+
 
 
 @media (max-width: 400px) {
 
-  .steps span {
+.steps span {
   width: 40px;
   height: 40px;
 }
 
+.step{
+  margin: 1rem 1rem 1rem 1rem;
+}
 .step h2{
   font-size: 1.5rem;
 }
 
-.lokationContainer{
-  justify-content: flex-start;
-}
-
-.lokationContainer label{
+.step p{
   font-size: 0.9rem;
 }
 
-.lokationContainer .lokationCheckbox{
-  width: 100px;
-  margin: 0;
+.step label{
+  font-size: 1rem;
 }
 
 
@@ -442,6 +498,41 @@ button{
     justify-content: space-between;
     align-items: center;
 }
+
+.lokationContainer{
+  width: 100%;
+  max-width: 300px;
+  padding: 0;
+}
+
+.checkboxContainer{
+  gap: 5rem;
+  padding: 0;
+}
+
+.checkboxContainer select {
+  margin-top: 1rem;
+  margin-left: 0rem;
+  padding: 10px 12px; 
+  background: white; 
+  font-size: 0.7rem; 
+} 
+
+
+.godkendContainer p{
+  width: 40ch;
+  font-size: 0.9rem;
+}
+
+.godkendContainer textarea{
+  margin-left: 10px;
+}
+
+.godkendContainer h3{
+  font-size: 1.3rem;
+}
+
+
 
 }
 

@@ -6,5 +6,4 @@ export default defineNuxtConfig({
   components:true,
   srcDir: '.',
   css: ['@/assets/css/main.css'],
-  
 })
