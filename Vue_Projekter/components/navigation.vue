@@ -194,7 +194,7 @@ onUnmounted(() => {
   color: var(--mainred);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
   .nav {
     justify-content: space-between;
   }

@@ -28,10 +28,7 @@ const slugify = title =>
 <template>
   <Header />
 
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="../../assets/vid/BrandingVideo.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <img src="../../assets/img/Gokart.webp" alt="Gokart i action house" class="hero-video" />
 
   <div class="aktiviteterWrapper">
     <section class="aktIntro">
@@ -80,9 +77,12 @@ const slugify = title =>
 
 <style>
 .hero-video {
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 50vh;
   object-fit: cover;
+  object-position: center 20%;
+  margin: 0;
+  display: block;
 }
 
 .flip-grid {
