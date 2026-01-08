@@ -12,13 +12,13 @@ import VREscape from '../assets/img/VREscape.webp'
 
 // Definerer værdier i et array som vi kan bruge til at generere flipcards
 const baseCards = [
-  { title: 'Bowling', caption: 'Sjov for alle', description: 'Tag venner og familie med til bowling i moderne baner.', image: BowlingImg },
-  { title: 'Gokart', caption: 'Fart og spænding', description: 'Oplev høj fart på vores indendørs gokartbane.', image: GokartImg },
-  { title: 'Lasergame', caption: 'Action og taktik', description: 'Kæmp mod vennerne i vores lasergame arena.', image: LasergameImg },
-  { title: 'Spillehal', caption: 'Spillehal til familien', description: 'Nyd sjove arkadespil i spillehalen', image: Spillehal },
-  { title: 'Legeland', caption: 'Legeland til børn', description: 'Sjov og leg for de mindste.', image: Legeland },
-  { title: 'Virtual Reality', caption: 'Virtual reality', description: 'Oplev VR i verdensklasse.', image: Virtualreality },
-  { title: 'VR Escaperoom', caption: 'Firma og grupper', description: 'Perfekt til firmaevents og grupper.', image: VREscape }
+  { title: 'Bowling', titleshow: 'Bowling', caption: 'Sjov for alle', description: 'Tag venner og familie med til bowling i moderne baner.', image: BowlingImg },
+  { title: 'Gokart', titleshow: 'Gokart', caption: 'Fart og spænding', description: 'Oplev høj fart på vores indendørs gokartbane.', image: GokartImg },
+  { title: 'Lasergame', titleshow: 'Lasergame', caption: 'Action og taktik', description: 'Kæmp mod vennerne i vores lasergame arena.', image: LasergameImg },
+  { title: 'Gokart', titleshow: 'Spillehal', caption: 'Spillehal til familien', description: 'Nyd sjove arkadespil i spillehalen', image: Spillehal },
+  { title: 'Legeland', titleshow: 'Legeland', caption: 'Legeland til børn', description: 'Sjov og leg for de mindste.', image: Legeland },
+  { title: 'Gokart', titleshow: 'Virtual Reality', caption: 'Virtual reality', description: 'Oplev VR i verdensklasse.', image: Virtualreality },
+  { title: 'Gokart', titleshow: 'VR Escape', caption: 'Firma og grupper', description: 'Perfekt til firmaevents og grupper.', image: VREscape }
 ]
 
 // Definerer antal kort per side og antal sider i carousel (3*3=9 kort vist)
@@ -87,7 +87,7 @@ onUnmounted(() => {
             <img :src="card.image" alt="" />
             <div class="front-overlay">
               <div class="text-background"></div>
-              <h3>{{ card.title }}</h3>
+              <h3>{{ card.titleshow}}</h3>
             </div>
             <div class="flip-icon">↻</div>
           </div>
@@ -98,7 +98,7 @@ onUnmounted(() => {
             <NuxtLink
                 :to="`/aktiviteter/${card.title}`"
                 class="read-more-link">
-                Læs mere om {{ card.title }}
+                Læs mere om {{ card.titleshow }}
           </NuxtLink>
           </div>
           
