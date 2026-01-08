@@ -1,6 +1,8 @@
 <script setup>
+// Importerer nødvendige funktioner fra Vue
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// Reaktiv variabel til at holde styr på om menuen er åben eller lukket, samt funktion der skifter menuens tilstand når burger ikonet klikkes
 const menuOpen = ref(false)
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
@@ -9,6 +11,7 @@ const closeMenu = () => {
   menuOpen.value = false
 }
 
+// Lidt ligesom før, vi definerer en reaktiv variabel til dropdown menuen samt funktioner til at åbne/lukke den
 const dropdownOpen = ref(false)
 const isMobile = ref(false)
 
@@ -20,11 +23,13 @@ const closeDropdown = () => {
   dropdownOpen.value = false
 }
 
+// Funktion til at håndtere vinduesstørrelse og lukke dropdown hvis vi ikke er på mobil, for at sikre en let overgang uden en dropdown der hænger åben efter skift.
 const handleResize = () => {
   isMobile.value = window.innerWidth <= 400
   if (!isMobile.value) dropdownOpen.value = false
 }
 
+// Funktion til at lukke både dropdown og menu hvis der klikkes udenfor navigationen på mobil
 const handleOutsideClick = e => {
   if (!isMobile.value) return
   const nav = document.querySelector('.nav')
@@ -34,6 +39,7 @@ const handleOutsideClick = e => {
   }
 }
 
+// Tilføjer og fjerner event listeners for resize og klik udenfor navigationen. On/unmounted betyder når komponentet sættes ind i DOM'en og fjernes igen.
 onMounted(() => {
   handleResize()
   window.addEventListener('resize', handleResize)

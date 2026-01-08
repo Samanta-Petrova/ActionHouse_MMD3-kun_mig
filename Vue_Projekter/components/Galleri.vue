@@ -1,6 +1,8 @@
 <script setup>
+  // Importerer nødvendige funktioner fra Vue
 import { ref, computed } from 'vue'
 
+// Importerer billeder til galleriet
 import BowlingImg from '../assets/img/Bowling.webp'
 import GokartImg from '../assets/img/Gokart.webp'
 import LasergameImg from '../assets/img/Lasergame.webp'
@@ -9,6 +11,7 @@ import SpillehalImg from '../assets/img/Spillehal.webp'
 import VirtualrealityImg from '../assets/img/VirtualReality.webp'
 import VREscapeImg from '../assets/img/VREscape.webp'
 
+// Henter vores billede i et array af objekter
 const baseCards = [
   { image: BowlingImg },
   { image: GokartImg },
@@ -19,9 +22,11 @@ const baseCards = [
   { image: VREscapeImg }
 ]
 
+// Definerer antal kort per side, samt hvilken side der er aktiv
 const cardsPerPage = 3
 const activePage = ref(0)
 
+// Generere kortene til galleriet ved at gentage baseCards indtil vi har nok kort til alle sider så det ikke pludseligt står tomt
 const cards = computed(() => {
   const result = [...baseCards]
   while (result.length < cardsPerPage * Math.ceil(baseCards.length / cardsPerPage) + cardsPerPage) {
@@ -30,10 +35,12 @@ const cards = computed(() => {
   return result
 })
 
+// Bruger math.ceil til at finde ud af hvor mange sider vi har brug for i galleriet
 const pages = computed(() =>
   Math.ceil(baseCards.length / cardsPerPage)
 )
 
+// Computed property til at beregne den nødvendige translateX værdi baseret på den aktive side
 const translateX = computed(() => {
   const cardWidth = 300
   const gap = 32
@@ -41,6 +48,7 @@ const translateX = computed(() => {
   return `translateX(-${activePage.value * pageWidth}px)`
 })
 
+// Funktion til at navigere til en bestemt side i galleriet via. dots navigation
 const goToPage = (page) => {
   if (page < 0) {
     activePage.value = pages.value - 1

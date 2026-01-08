@@ -1,6 +1,7 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue' // Her importere vi de forskellige funktioner vi skal bruge fra Vue biblioteket
 
+// Importere billeder vi skal bruge til flipcards
 import BowlingImg from '../assets/img/Bowling.webp'
 import GokartImg from '../assets/img/Gokart.webp'
 import LasergameImg from '../assets/img/Lasergame.webp'
@@ -9,6 +10,7 @@ import Spillehal from '../assets/img/Spillehal.webp'
 import Virtualreality from '../assets/img/VirtualReality.webp'
 import VREscape from '../assets/img/VREscape.webp'
 
+// Definerer værdier i et array som vi kan bruge til at generere flipcards
 const baseCards = [
   { title: 'Bowling', caption: 'Sjov for alle', description: 'Tag venner og familie med til bowling i moderne baner.', image: BowlingImg },
   { title: 'Gokart', caption: 'Fart og spænding', description: 'Oplev høj fart på vores indendørs gokartbane.', image: GokartImg },
@@ -19,9 +21,11 @@ const baseCards = [
   { title: 'VR Escaperoom', caption: 'Firma og grupper', description: 'Perfekt til firmaevents og grupper.', image: VREscape }
 ]
 
+// Definerer antal kort per side og antal sider i carousel (3*3=9 kort vist)
 const cardsPerPage = 3
 const pages = 3
 
+// Generere kortene til carousel ved at gentage baseCards indtil vi har nok kort til alle sider
 const cards = computed(() => {
   const result = [...baseCards]
   while (result.length < cardsPerPage * pages) {
@@ -30,10 +34,12 @@ const cards = computed(() => {
   return result
 })
 
+// Holder styr på hvilken side der er aktiv i carousel for autoplay funktionalitet
 const activePage = ref(0)
 const track = ref(null)
 let interval = null
 
+// Starter autoplay funktionen som skifter side hver 5. sekund
 const startAutoplay = () => {
   if (interval) return
   interval = setInterval(() => {
@@ -41,12 +47,13 @@ const startAutoplay = () => {
     scrollToPage(activePage.value)
   }, 5000)
 }
-
+// Stopper autoplay funktionen
 const stopAutoplay = () => {
   clearInterval(interval)
   interval = null
 }
 
+// Funktion til at scrolle til en bestemt side i carousel via. dots navigation
 const scrollToPage = page => {
   activePage.value = page
   const cardWidth = track.value.children[0].offsetWidth
@@ -56,10 +63,12 @@ const scrollToPage = page => {
   })
 }
 
+// Her starter vi autoplay funktionen så snart komponentet er sat ind i DOM'en
+
 onMounted(() => {
   startAutoplay()
 })
-
+// Stopper den igen når komponentet fjernes fra DOM'en, altså når den ikke længere vises
 onUnmounted(() => {
   stopAutoplay()
 })

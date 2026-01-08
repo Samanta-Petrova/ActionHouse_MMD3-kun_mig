@@ -1,6 +1,8 @@
 <script setup>
+// Her starter vi med at definere en reaktiv variabel til at holde styr på hvilken FAQ spørgsmål der er åbent. Da den er defineret til NULL fra starten, betyder det intet spørgsmål er åbent.
 const openFaq = ref(null)
 
+// Definerer FAQ spørgsmål og svar i et array af objekter
 const faqs = [
   {
     question: 'Må man selv have mad og drikke med',
@@ -20,6 +22,7 @@ const faqs = [
   }
 ]
 
+// Funktion til at åbne eller lukke et spørgsmål. Vi tjekker også om det i forvejen er åbent når man trykker, og lukker derfor i stedet hvis dette er tilfældet.
 const toggleFaq = index => {
   openFaq.value = openFaq.value === index ? null : index
 }
