@@ -2,6 +2,7 @@
 import Header from '../components/navigation.vue'
 import Footer from '../components/Footer.vue'
 import Galleri from '../components/Galleri.vue'
+import breadcrumbs from '../components/breadcrumbs.vue'
 </script>
 
 <template>
@@ -12,6 +13,8 @@ import Galleri from '../components/Galleri.vue'
     alt="Lasergame hos Action House"
     class="lasergame-hero"
   />
+
+  <breadcrumbs />
 
   <main class="lasergame-page">
     <section class="lasergame-intro">
