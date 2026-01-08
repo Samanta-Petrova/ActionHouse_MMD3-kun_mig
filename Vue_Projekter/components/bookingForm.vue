@@ -82,11 +82,11 @@ const valgtSpiseOpt = ref([])
 
 // et array med spise muligheder
 const spiseOpt = [
-  "forret",
-  "hovedret",
-  "buffet",
-  "frisoftice til buffet",
-  "dessert"
+  "Forret",
+  "Hovedret",
+  "Buffet",
+  "Fri softice til buffet",
+  "Dessert"
 ]
 
 // list over steder folk kan have hørt om action house
@@ -192,11 +192,11 @@ const visTilbud = ref(false)
         <label for="fornavn">Fornavn</label>
         <br>
         <!-- v-model binder den data som bliver inputet i fornavns feltet ind i formdata vairablen fornavn og gemmer den data så den kan blive sendt ind i consolen -->
-        <input type="text" placeholder="fornavn" v-model="formData.name" />
+        <input type="text" placeholder="Fornavn" v-model="formData.name" />
         <br>
         <label for="efternavn">Efternavn</label>
         <br>
-        <input type="text" placeholder="efternavn" v-model="formData.lastName" />
+        <input type="text" placeholder="Efternavn" v-model="formData.lastName" />
         <br>
         <label for="Email">Email</label>
         <br>
@@ -237,7 +237,7 @@ const visTilbud = ref(false)
     
     <!-- step 3 deltagerliste -->
     <div class="step" v-if="step === 5">
-      <h2>deltagerliste</h2>
+      <h2>Deltagerliste</h2>
       <p>(kun nødvendigt til bowling, gokart eller lasergame)</p>
       <textarea name="deltagerListe" id="deltagerliste" rows="10" cols="50"></textarea>
       <p>Skriv deltagernavne her - Så er navnene skrevet ind når i kommer.</p>
@@ -266,19 +266,19 @@ const visTilbud = ref(false)
     </div>
     <!-- step 7 kommentarer -->
     <div class="step" v-if="step === 7">
-      <h2>kommentarer</h2>
+      <h2>Kommentarer</h2>
       <div class="kommentarerContainer">
         <textarea name="kommentarfelt" id="kommentarfelt" rows="10" cols="50"></textarea>
         <div class="godkendContainer">
-          <h3>tilmeld nyhedsbrev</h3>
+          <h3>Tilmeld nyhedsbrev</h3>
           <input type="checkbox">
-          <label for="nyhedsbrev">ja tak</label>
+          <label for="nyhedsbrev">Ja tak</label>
         </div>
         <div class="godkendContainer">
           <h3>Persondata godkendelse</h3>
           <p>Jeg godkender hermed at Action House Løkken må bruge de ovenfor indtastede oplysninger i forbindelse med booking af aktiviteter. Action House bruger udelukkende disse oplysninger for at kunne foretage en booking af valgte aktiviterer. Yderligere oplysninger kan findes i vores privatlivspolitik</p>
           <input type="checkbox">
-          <label for="godkendelse">jeg godkender betingelserne</label>
+          <label for="godkendelse">Jeg godkender betingelserne</label>
         </div>
       </div>
       <div>
@@ -477,6 +477,7 @@ button{
 
 .step{
   margin: 1rem 1rem 1rem 1rem;
+  max-width: 400px;
 }
 .step h2{
   font-size: 1.5rem;

@@ -57,6 +57,10 @@ template{
 }
 
 @media (max-width: 600px) {
+    template{
+        max-width: 400px;
+    }
+   
     p{
         width: 40ch;
         font-size: 0.9rem;
