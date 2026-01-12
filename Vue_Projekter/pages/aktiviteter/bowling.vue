@@ -97,7 +97,10 @@ import breadcrumbs from '../components/breadcrumbs.vue'
 
       <a href="/booking" class="bowling-button">Book nu</a>
     </section>
-
+<div>
+    <PilOp />
+    <ScrollToTop />
+  </div>
     <Galleri class="bowling-gallery" />
   </main>
 
