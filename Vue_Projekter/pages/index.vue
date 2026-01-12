@@ -89,7 +89,13 @@ import Footer from '../components/Footer.vue'
   margin-right: 2rem;
   margin-bottom: 2rem;
 }
-
+.forsideParagraphs a {
+  color: #670007;
+  text-decoration: underline;
+}
+.forsideParagraphs a:hover {
+  color: #cc1824;
+}
 .forsideMaxLength {
   max-width: 50%;
 }
@@ -126,7 +132,7 @@ import Footer from '../components/Footer.vue'
 
 .forsideButton {
   padding: 0.75rem 2.5rem;
-  background-color: #D41E2A;
+  background-color: #670007;
   color: #ffffff;
   border: none;
   border-radius: var(--desktopBorder);
@@ -136,7 +142,7 @@ import Footer from '../components/Footer.vue'
 }
 
 .forsideButton:hover {
-  background-color: #154B82;
+  background-color: #cc1824;
 }
 
 img {

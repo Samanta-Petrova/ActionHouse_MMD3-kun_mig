@@ -459,11 +459,13 @@ const activeCategory = ref('all')
 
 .read-more {
   display: inline-block;
-  color: #154B82;
+  color: #670007;
   text-decoration: underline;
   margin-top: auto;
 }
-
+.read-more:hover {
+  color: #cc1824;
+}
 * {
   line-height: 1.6rem;
   box-sizing: border-box;

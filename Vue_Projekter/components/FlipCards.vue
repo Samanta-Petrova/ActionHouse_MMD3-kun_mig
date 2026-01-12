@@ -90,6 +90,7 @@ onUnmounted(() => {
               <h3>{{ card.titleshow}}</h3>
             </div>
             <div class="flip-icon">↻</div>
+            
           </div>
 
           <div class="flip-card-bagside">
@@ -123,10 +124,10 @@ onUnmounted(() => {
   overflow: hidden;
   padding: var(--NormPadding);
 }
-
 .track {
   display: flex;
   gap: 2rem;
+  padding: 2rem;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -148,7 +149,7 @@ onUnmounted(() => {
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-
+/* ændring i kode - sammy*/
 .flip-card-front,
 .flip-card-bagside {
   position: absolute;
@@ -158,6 +159,7 @@ onUnmounted(() => {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px rgba(21, 75, 130, 0.4);
 }
 
 .flip-card-front img {
@@ -166,6 +168,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 .front-overlay {
@@ -203,8 +206,8 @@ onUnmounted(() => {
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
-  font-size: 2.2rem;
-  color: white;
+  font-size: 3rem;
+  color: #154B82;
   opacity: 0.8;
   z-index: 2;
   transform: translateX(-10%);

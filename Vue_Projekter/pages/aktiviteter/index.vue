@@ -123,6 +123,7 @@ const slugify = title =>
   border-radius: 12px;
   backface-visibility: hidden;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(21, 75, 130, 0.4);
 }
 
 .flip-card-front img {
@@ -167,7 +168,7 @@ const slugify = title =>
   bottom: 0.5rem;
   right: 0.5rem;
   font-size: 2.2rem;
-  color: white;
+  color: #154B82;
   opacity: 0.8;
 }
 
@@ -185,7 +186,7 @@ const slugify = title =>
 .read-more-link {
   display: inline-block;
   margin-top: 1rem;
-  color: #154B82;
+  color: #670007;
   text-decoration: underline;
   font-weight: 500;
 }
